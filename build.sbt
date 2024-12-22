@@ -14,5 +14,6 @@ lazy val root = (project in file("."))
     scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.CommonJSModule) },
     semanticdbEnabled := true,
     autoAPIMappings   := true,
+//    Compile / mainClass := Some("in.oss.laminar.playground.App")
     Compile / mainClass := Some("in.oss.laminar.App")
   )

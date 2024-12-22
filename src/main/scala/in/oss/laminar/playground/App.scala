@@ -1,25 +1,16 @@
-package in.oss.laminar
+package in.oss.laminar.playground
 
 import com.raquo.airstream.ownership.OneTimeOwner
 import com.raquo.airstream.timing.PeriodicStream
 import com.raquo.laminar.api.L.{*, given}
 import com.raquo.laminar.nodes.ReactiveHtmlElement
-import frontroute.LinkHandler
-import in.oss.laminar.components.{Header, Router}
+import in.oss.laminar.Elements
 import org.scalajs.dom
 import org.scalajs.dom.HTMLDivElement
 
 import scala.util.Try
 
 object App {
-
-  val app: ReactiveHtmlElement[HTMLDivElement] = {
-    div(
-      Header(),
-      Router()
-    ).amend(LinkHandler.bind) // 'LinkHandler.bind' is a modifier that will make sure that the rendering will react to new links
-    // or internal links in the application as the url in the browser changes
-  }
 
   def main(args: Array[String]): Unit = {
     val containerNode = dom.document.querySelector("#app") // 'app' is the main div in index.html file
@@ -32,8 +23,7 @@ object App {
 //      Elements.clicksQueried
 //      Elements.clicksVarWithUpdater
 //      Elements.clicksVarWithWriter
-//      Elements.clicksVarWithSet
-      app
+      Elements.clicksVarWithSet
     )
   }
 }
