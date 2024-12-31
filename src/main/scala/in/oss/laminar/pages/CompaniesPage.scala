@@ -23,8 +23,17 @@ object CompaniesPage {
     tags = List("tag1", "tag2")
   )
 
+  def performBackendCall():Unit = {
+    //Backend calls can be performed:
+//    1-  in Laminar explicitly by using the 'fetch' API
+//    2-  using 'Ajax' calls
+//    3-  using sttp: basicRequest/FetchBackend
+  }
+
   def apply(): ReactiveHtmlElement[HTMLElement] =
     sectionTag(
+      onMountCallback(_ => performBackendCall()),// 'onMountCallback' will allow us to perform any sort of 'Unit' returning functions, when the
+      // section tag is added into the HTML.
       cls := "section-1",
       div(
         h1("Companies Board")
